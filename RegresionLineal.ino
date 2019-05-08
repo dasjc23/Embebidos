@@ -20,7 +20,7 @@ float ypro;
 float ypro_real;
 float ypro_pred;
 float R2;
-//  y=mX+Bo
+
 
 void setup() {
   
@@ -31,7 +31,7 @@ void setup() {
 void loop() {
 
   for(;fil<29;fil++){
-    sum_x=sum_x+matriz[fil][0]; //Ciclo para leer toda la sumatoria
+    sum_x=sum_x+matriz[fil][0]; 
     sum_y=sum_y+matriz[fil][1]; 
     sum_xy=sum_xy+(matriz[fil][0]*matriz[fil][1]);
     sum_x2=sum_x2+pow(matriz[fil][0],2);
@@ -39,9 +39,6 @@ void loop() {
 
   Bo=(sum_x2*sum_y-sum_x*sum_xy)/(29*sum_x2-pow(sum_x,2));
   m=(29*sum_xy-sum_x*sum_y)/(29*sum_x2-pow(sum_x,2));
-
-  Serial.println(Bo);
-  Serial.println(m);
 
   fil=0;
   ypro=sum_y/29;
@@ -59,6 +56,5 @@ void loop() {
     Serial.println(R2);
 
     delay(5000);
-
-    
+  
 }
